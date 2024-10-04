@@ -1,3 +1,6 @@
+; ----------------
+; This function open background picture, places the input-file on top, then save whole as out-file.
+;
 (define (batch-center-on-background background-file input-file output-file)
 (let* (
     (input-image (car (gimp-file-load RUN-NONINTERACTIVE input-file input-file)))
