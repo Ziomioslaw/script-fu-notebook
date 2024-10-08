@@ -1,7 +1,7 @@
 ; ----------------
 ; This function open background picture, places the input-file on top, then save whole as out-file.
 ;
-(define (batch-center-on-background background-file input-file output-file)
+(define (center-on-background background-file input-file output-file)
 (let* (
     (input-image (car (gimp-file-load RUN-NONINTERACTIVE input-file input-file)))
     (background-image (car (gimp-file-load RUN-NONINTERACTIVE background-file background-file)))
@@ -45,7 +45,7 @@
 ; This function allow run the base script in batch mode:
 ;  gimp -i -b '(batch-center-on-background-batch "tlo.jpg" "input/*.jpg" "output" )' -b '(gimp-quit 0)'
 ;
-(define (batch-center-on-background-batch background-file input-pattern result-directory)
+(define (center-on-background-batch background-file input-pattern result-directory)
 (let* (
     (files (cadr (file-glob input-pattern 1)))
   )
@@ -54,7 +54,7 @@
         (file-name (car files))
         (output-filename (string-append result-directory "/" (basename-from-filename (filename-from-path file-name)) ".jpg"))
       )
-      (batch-center-on-background background-file file-name output-filename)
+      (center-on-background background-file file-name output-filename)
     )
 
     (set! files (cdr files))
