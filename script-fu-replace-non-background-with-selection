@@ -16,7 +16,7 @@
          (color-at-point (car (gimp-image-pick-color image drawable left-top-x left-top-y FALSE FALSE 0)))
         )
     (gimp-context-set-foreground color-at-point)
-    (gimp-fuzzy-select drawable left-top-x left-top-y 0 CHANNEL-OP-REPLACE TRUE TRUE 15.0 FALSE)
+    (gimp-fuzzy-select drawable left-top-x left-top-y 15 CHANNEL-OP-REPLACE TRUE TRUE 5.0 FALSE)
     (gimp-selection-invert image)
     (gimp-context-set-foreground new-color)
     (gimp-edit-fill drawable FOREGROUND-FILL)
